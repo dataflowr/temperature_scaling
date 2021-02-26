@@ -4,7 +4,7 @@
 - evaluate ECE across several architectures of different capacities and types. Do you observe the same overconfidence pattern across networks?
 - implement one of the experiments from this paper [On Mixup Training: Improved Calibration and Predictive Uncertainty for Deep Neural Networks](https://arxiv.org/abs/1905.11001) on STL-10 or CIFAR-10 or CIFAR-100. You can use MNIST or Fashion-MNIST for prototyping
 - Ovadia et al. ([Can You Trust Your Model's Uncertainty? Evaluating Predictive Uncertainty Under Dataset Shift](https://arxiv.org/abs/1906.02530)) have shown that temperature scaling does not do well in presence of dataset shift. Verify this result on [CIFAR-10-C](https://github.com/hendrycks/outlier-exposure)
-- Mukhoti et al.([Calibrating Deep Neural Networks using Focal Loss](https://arxiv.org/abs/2002.09437)) have shown that training a network with the focal loss instead of cross-entropy loss leads to better calibrated networks. Using their [repo](https://github.com/torrvision/focal_calibration) train a network on CIFAR-10 using focal loss and compare it with temperature-scaling. What if you perform temperature scaling on the focal loss trained network?
+- Mukhoti et al.([Calibrating Deep Neural Networks using Focal Loss](https://arxiv.org/abs/2002.09437)) have shown that training a network with the focal loss instead of cross-entropy loss leads to better calibrated networks. Using their [repo](https://github.com/torrvision/focal_calibration) to boostrap you for training a network on CIFAR-10 using focal loss and compare it with temperature-scaling. What if you perform temperature scaling on the focal loss trained network?
 
 ---------------------
 
