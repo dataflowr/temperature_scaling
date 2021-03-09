@@ -1,19 +1,3 @@
-
-import os
-import sys
-path = 'D:\\sbossou\\OneDrive - ERAAM\\projects\\misc\\2020_06_sergio_internship\\py'+'\\GitHub\\Project-calibration-temperature_scaling\\'
-sys.path.append('D:\\sbossou\\OneDrive - ERAAM\\projects\\misc\\2020_06_sergio_internship\\py'+'\\GitHub\\Project-calibration-temperature_scaling\\')
-
-import time
-import torch
-import torchvision as tv
-from torch import nn, optim
-from torch.utils.data.sampler import SubsetRandomSampler
-from models import DenseNet
-import torch.nn.functional as F
-from sklearn.calibration import calibration_curve
-from reliability_diagram import reliability_diagram
-
 import torch
 from torch import nn, optim
 from torch.nn import functional as F
@@ -46,10 +30,10 @@ class ModelWithPlatt(nn.Module):
 
         return new_logits
 
-    # This function probably should live outside of this class, but whatever
+    # Sets the Platt scaling parameters. The name is set_temperature for convenience.
     def set_temperature(self, valid_loader):
         """
-        Tune the tempearature of the model (using the validation set).
+        Tune the parameters of the model (using the validation set).
         We're going to set it to optimize NLL.
         valid_loader (DataLoader): validation set loader
         """

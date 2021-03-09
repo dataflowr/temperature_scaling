@@ -1,8 +1,7 @@
 # From https://github.com/hollance/reliability-diagrams
 
-import os
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def compute_calibration(true_labels, pred_labels, confidences, num_bins=10):
@@ -108,6 +107,12 @@ def _reliability_diagram_subplot(ax, bin_data,
     if draw_ece:
         ece = (bin_data["expected_calibration_error"] * 100)
         ax.text(0.98, 0.02, "ECE=%.2f" % ece, color="black",
+                ha="right", va="bottom", transform=ax.transAxes)
+        mce = (bin_data["max_calibration_error"] * 100)
+        ax.text(0.78, 0.02, "MCE=%.2f" % mce, color="black",
+                ha="right", va="bottom", transform=ax.transAxes)
+        acc = (bin_data["avg_accuracy"] * 100)
+        ax.text(0.58, 0.02, "Accuracy=%.2f" % acc, color="black",
                 ha="right", va="bottom", transform=ax.transAxes)
 
     ax.set_xlim(0, 1)

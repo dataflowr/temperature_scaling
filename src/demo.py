@@ -12,7 +12,7 @@ from temperature_scaling import ModelWithTemperature
 from platt_scaling import ModelWithPlatt
 from isotonic_regression import ModelWithIsotonic
 
-def demo(data, scaling_type, save, depth=40, growth_rate=12, batch_size=256):
+def demo(data, save, scaling_type='Temperature', depth=40, growth_rate=12, batch_size=256):
     """
     Applies different scaling methods to a trained model.
 
@@ -27,6 +27,7 @@ def demo(data, scaling_type, save, depth=40, growth_rate=12, batch_size=256):
 
     data (str) - path to directory where data should be loaded from/downloaded
     save (str) - directory with necessary files (see above)
+    scaling_type (str) - calibration model to be applied. Can either be 'Platt', 'Isotonic' or 'Temperature'. By default, temperature scaling is performed.
     """
     # Load model state dict
     model_filename = os.path.join(save, 'model.pth')
@@ -105,10 +106,7 @@ if __name__ == '__main__':
     --save (str) - directory with necessary files (see above)
     """
     path = 'D:\\sbossou\\OneDrive - ERAAM\\projects\\misc\\2020_06_sergio_internship\\py' + '\\GitHub\\Project-calibration-temperature_scaling\\'
-    sys.path.append(
-        'D:\\sbossou\\OneDrive - ERAAM\\projects\\misc\\2020_06_sergio_internship\\py' + '\\GitHub\\Project-calibration-temperature_scaling\\')
     # fire.Fire(demo)
     data = path + '\\data\\'
     save = path + '\\model'
-    # save =
-    demo(data, 'Isotonic', save, depth=40, growth_rate=12, batch_size=256)
+    demo(data, save,'Isotonic', depth=40, growth_rate=12, batch_size=256)
